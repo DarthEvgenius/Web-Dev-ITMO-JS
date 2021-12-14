@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		{
+			"use strict";
+
+//задание 1.1
+			console.log('Hello World!'); 
+
+//задание 1.2
+			let tmp = 0.07;
+			console.log(tmp);
+
+//задание 1.3
+			let user = "Doe";
+			let login = user;
+			console.log(login); 
+
+//задание 1.4
+			let a = 3,
+			b = 5;
+			console.log(`3 и 5 = ${a + b}`); //так написано в подсказке
+			// но можно и так:
+			let sum = a + b;
+			console.log("3 и 5 = " + sum);
+			//или:
+			console.log("3 и 5 = " + (a + b)); 
+
+//задание 1.5
+			const admin = "admin";
+			console.log(admin);
+			//зачем изменять константу, если есть для этого перемнные? Не очень понятный вопрос, ответом на который служит само название "константа"
+
+//задание 1.6
+			//variables a, b, already been set
+			let check1 = a + b,
+			check2 = a - b,
+			check3 = a * b,
+			check4 = a / b,
+			check5 = a % b,
+			check6 = a ** b;
+
+			//и, видимо, вывести в консоль:
+			console.log(check1, check2, check3, check4, check5, check6);
+
+//задание 1.7
+			a = 0;
+			b = 0;
+			let incAfter = a++,
+			incPost = ++b;
+			console.log(a, b, incAfter, incPost);
+
+//задание 1.8
+			a = 5;
+			b = 5;
+			let decAfter = a--,
+			decPost = --b;
+			console.log(a, b, decAfter, decPost);
+
+		}
+	</script>
+</body>
+</html>
