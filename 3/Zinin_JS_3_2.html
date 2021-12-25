@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 3.2</title>
+</head>
+<body>
+	<form action="#">
+		<p>Старая зарплата:</p>
+			<input type="text" id="oldW">
+		<p>Коэффициент повышения зарплаты:</p>
+			<input type="text" id="coefficientW">
+			<input type="submit" onclick="Wages()" value="Рассчитать">
+	</form>
+	
+	<script>
+		function Wages()
+		{
+			let oldWages = document.getElementById("oldW").value;
+			let coefficientWages = document.getElementById("coefficientW").value;
+			let newWages = oldWages * coefficientWages;
+			alert("Ваша новая зарплата " + newWages);
+		}
+	</script>
+</body>
+</html>

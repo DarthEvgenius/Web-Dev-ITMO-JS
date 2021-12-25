@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 3.3</title>
+	<style>
+		h1 {
+			color: #ff0000;
+			font-size: 18px;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="newW"></h1>
+	<h6 id="date">11 января 2011 года</h6>
+
+<!-- тут есть вопрос: почему если эти инпуты обернуть в форму, то программа работает по другому. Она вроде как исполняет всё верно, но сразу же скидывает результаты написанного -->
+
+	<p><span>Введите старую зарплату</span><input type="text" name="old" id="oldW"></p>
+	<p><span>Введите коэффициент повышения зарплаты</span><input type="text" name="coefficient" id="coefficientW"></p>
+
+	<input type="submit" onclick="processingForm()" value="Рассчитать">
+	
+	<script>
+		function Wages (oldWages, coefficientWages)
+		{
+			let newWages = oldWages * coefficientWages;
+			let date = document.getElementById('date').innerHTML;
+			document.getElementById('newW').innerHTML = "Ваша новая зарплата" + newWages + "рублей." + date;
+		}
+		
+		function processingForm()
+		{
+			//берём значения из ввода и переводим в десятичную систему. Может, ещё поставить проверку на NaN?
+			let oldW = parseInt (document.getElementById("oldW").value, 10);
+			let coefficientW = parseInt(document.getElementById("coefficientW").value, 10);
+			Wages(oldW, coefficientW);
+		}
+		
+	</script>
+</body>
+</html>
