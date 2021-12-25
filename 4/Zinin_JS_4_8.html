@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.8</title>
+</head>
+<body>
+	<script>
+{
+		"use strict";
+
+		let city1 = {
+			name: 'Saint-Petersburg',
+			population: '1e6'
+		}
+
+		for (item in city1)
+		{
+			console.log (item); //так мы выводим само свойство
+			console.log (city1[item]); //а так значение свойства
+		}
+
+// код из предыдущего задания
+		let city = {};
+		city['name'] = 'ГородN';
+		city['population'] = '1e7';
+		city['getName'] = function ()
+		{
+			return this.name;
+		};
+
+// Далее идёт два варианта кода, можно спросить какой предпочтительнее и почему? Или они оба подходят, тогда в каких ситуациях лучше использовать тот или иной.
+		city['printProperties'] = function()
+		{
+			// Создаём массив, в который переносим свойства, если их значения не равны функциям 
+			let strProperties = [];			
+			for (item in this)
+				{
+					if (typeof this[item] != 'function')
+						{
+							strProperties.push(item + ' = ' + this[item]);
+						}
+				}		
+			// и выводим массив через метод .join строкой. В таком варианте "\"" в конце строки не будет, как в задании
+			console.log(strProperties.join('/'));
+				
+		}
+		// вызываем метод объекта 
+		city.printProperties()
+
+// И второй вариант, в котором вместо массива переносим значения в строку, который реализован в ответах, правда есть пара нюансов
+		city['printProperties'] = function ()
+		{
+		    let result = '';
+		    for (item in this)
+		    {
+		        if (typeof this[item] !== 'function')
+		        {
+		            result = result + item + " = " + this[item] + "/"; // в задании pdf строка делится "\", и этот символ завершает строку. В ответах же используется "\n", что переносит строкудля каждой пары свойство-значение, но не добавляет разделитель.
+		        }
+		    }
+		    return console.log(result); // вместо возврата просто переменной result я подумал, что можно вернуть сразу её вывод в консоль
+		}
+		// и тогда тоже просто обращаемся к методу 
+		city.printProperties();
+
+// Ещё раз хотел бы попросить рассказать, какие преимущества и недостатки имеет каждый метод. Спасибо!
+}		
+	</script>
+</body>
+</html>

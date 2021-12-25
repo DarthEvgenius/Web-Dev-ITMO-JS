@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.10</title>
+</head>
+<body>
+	<script>
+{
+		"use strict";
+
+		let str1 = 'asdf';
+		let str2 = 'qwer';
+		result = (new String).concat(str1, ' ', str2)
+		console.log(result); //т.е. при методе new let не обязательно
+
+		let person = {
+			name: '',
+			surname: '',
+			// задание я понял так:
+			setName: function() {this.name = prompt('Your name');},
+			setSurname: function() {this.surname = prompt('Your surname');},
+			// далее без return будет undefined? ибо он выполник сложение, но результат не запишет
+			getFullName: function() {return (new String).concat(this.name, ' ', this.surname);}
+		}
+		// и функция, которая приводит всё это в действие
+		let askMe = function ()
+		{
+			person.setName();
+			person.setSurname();
+			console.log(person.getFullName());
+		}
+		askMe();
+		
+
+
+
+		
+}		
+	</script>
+</body>
+</html>

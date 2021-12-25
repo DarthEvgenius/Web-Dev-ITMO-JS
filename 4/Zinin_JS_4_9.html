@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.9</title>
+</head>
+<body>
+	<script>
+{
+	"use strict";
+
+	let arr = [1, 2,3,4,5,6,7,8,9,0];
+	arr.forEach(item =>{console.log(item);});
+
+	let myArr = [1,2,3,4,5,6,7,8,0];
+	// присваем переменной функцию с аргументом-массивом
+	let getEvent = (arr) => 
+	{
+		// создаём локальный массив, в который сложим чётные элементы
+		let newArr = [];
+		// для каждого элемента массива-аргумента...
+		arr.forEach (item => {
+			// если значение этого элемента чётное (при делении на 2 остатка нет, равно двойное!)
+			if (arr[item] %2 == 0)
+			{
+				// пушим его в локальный массив
+				newArr.push(arr[item]); // тут понадобился локальный массив для метода push
+			}
+		})
+		return console.log(newArr); //возвращаем сразу в консоль
+	}
+	getEvent(myArr);
+		
+}		
+	</script>
+</body>
+</html>

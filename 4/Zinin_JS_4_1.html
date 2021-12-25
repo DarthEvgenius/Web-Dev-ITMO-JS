@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.1</title>
+</head>
+<body>
+	<script>
+		"use strict"
+		let products = ['Блины', 'Квас', 'Пельмени', 'Икра'];
+		for (let i = 0; i < products.length; i++)
+		{
+			document.write (products[i], '<br>');
+		}
+// Написал этот код до того, как промотал страницу с заданием дальше, до скриншота с кодом. То есть создавать переменную с единоразовым выводом советуется для быстродействия? Или разницы нет?
+
+		let tmp = '';
+		for (let i = 0; i < products.length; i++)
+		{
+			tmp = tmp + products[i] + '<br>';
+		}
+		document.write (tmp);
+	</script>
+</body>
+</html>

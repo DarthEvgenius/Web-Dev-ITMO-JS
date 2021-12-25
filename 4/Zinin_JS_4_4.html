@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.4</title>
+</head>
+<body>
+	<script>
+{
+		"use strict";
+		
+		let ar = ['я', 'с', 'а'];
+		ar.sort();
+		document.write(ar, "<br>");
+
+		let arr = ['Книги', 'Фильмы', 'Видео', 'Контакты', 'Поисковик', 1, 5, 3, 2];
+
+// Получается, если поставить {} до "use strict" и в конце скрипта, то можно объявлять переменные без let и var? То есть, в строгом режиме так можно? А что ещё можно? Потому что я посмотрел на код в задании, и сначала не понял, что тут за конструкция, потом подумал, что это ошибка, а потом как-то случайно узналось, что оно работает и так, и так...
+
+		let sortAndJoin = (unsortedArr) => 
+		{
+			let unSort = [];
+			for (let i = 0; i < unsortedArr.length; i++)
+			{
+				if (unsortedArr[i] != undefined)
+				{
+					unSort.push(unsortedArr[i]);
+				}
+			}
+			console.log(unSort, typeof unSort);
+
+			let sort = unSort.sort();
+			console.log(sort, typeof sort);
+
+			return sort.join('|');
+		}
+
+	document.write(sortAndJoin(arr));
+
+}
+	</script>
+</body>
+</html>

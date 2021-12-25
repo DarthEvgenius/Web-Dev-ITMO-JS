@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.13</title>
+</head>
+<body>
+	<script>
+{
+		"use strict";
+
+		let string = "asd, asd, asd, asd, asd, asd"
+		let getSplitArr = (str,symb) =>
+		{
+			// т.е. на входе надо вводить разделитель отдельно, он не задан изначально
+			return str.split(symb);
+		}
+		// в аргументы вводим переменную без кавычек, а разделитель в кавычках
+		console.log(getSplitArr(string, ", "));
+		
+}		
+	</script>
+</body>
+</html>

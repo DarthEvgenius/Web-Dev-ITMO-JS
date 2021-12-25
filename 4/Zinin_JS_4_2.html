@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.2</title>
+</head>
+<body>
+	<script>
+		"use strict";
+
+		let products = [];
+		products [0] = 'Блины';
+		products [1] = 'Квас';
+		products [3] = 'Пельмени';
+		products [4] = 'Икра';
+
+		function printProduct(products)
+		{
+			for (let i = 0; i < products.length; i++)
+			{
+// пропущенный индекс у нас выводится как undefined. Соответственно, выводим элемент, если он не undefined:
+				if (products[i] != undefined)
+				{
+				document.write(products[i] + '<br>');
+				}
+			}
+		}
+
+		printProduct(products);
+	</script>
+</body>
+</html>

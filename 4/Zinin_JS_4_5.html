@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.5</title>
+</head>
+<body>
+	<script>
+{
+		"use strict";
+
+		let arr = ['Книги', 'Фильмы', 'Видео', undefined, 'Контакты', 'Поисковик', 1, 5, 3, 2];
+		console.log(arr.join("|"));
+
+// То есть можно задавать несколько методов сразу, через точку!
+		let newArr = arr.filter(item => {if (item != undefined) return item;}).sort();
+		console.log(newArr.join("|"));
+
+		document.write("<br>");
+
+		function compareFunction (a, b)
+		{
+			if (((typeof a) == 'string') && ((typeof b) == 'number')) return -1;
+			if (((typeof a) == 'number') && ((typeof b) == 'string')) return 1;
+
+			if (((typeof a) == 'string') && ((typeof b) == 'string') && (a > b)) return 1;
+			if (((typeof a) == 'string') && ((typeof b) == 'string') && (a < b)) return -1;
+			if (((typeof a) == 'string') && ((typeof b) == 'string') && (a == b)) return 0;
+
+			if (((typeof a) == 'number') && ((typeof b) == 'number') && (a > b)) return 1;
+			if (((typeof a) == 'number') && ((typeof b) == 'number') && (a < b)) return -1;
+			if (((typeof a) == 'number') && ((typeof b) == 'number') && (a == b)) return 0;
+		}
+
+// чтобы сделать в обратном порядке есть метод .reverse, но послке его выполнения цифры опять сзади. Значит, в сравнении чисел и букв меняем местами 1 и -1
+		let newArr1 = arr.filter (item => {if (item !== undefined) return item}).sort(compareFunction).reverse();
+
+		document.write(newArr1.join("|"));
+
+}		
+	</script>
+</body>
+</html>

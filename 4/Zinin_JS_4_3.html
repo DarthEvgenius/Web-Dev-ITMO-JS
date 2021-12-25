@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Самостоятельная 4.3</title>
+</head>
+<body>
+	<script>
+		"use strict";
+		
+		let arr = [1,2,3,4,5,6];
+		document.write(arr);
+		document.write('<pre>');
+		document.writeln(arr);
+		document.write("<pre>");
+
+		let arrToStr = arr.join('/');
+		document.writeln(arrToStr);
+
+		let products = [];
+		products [0] = 'Блины';
+		products [1] = 'Квас';
+		products [3] = 'Пельмени';
+		products [4] = 'Икра';
+
+		function printProduct(arr)
+		{
+			let tmpArr = [];
+			for (let i = 0; i < arr.length; i++)
+			{
+				if (arr[i] != undefined)
+				{
+					tmpArr.push(arr[i]);
+				}
+			}		
+			tmpArr = tmpArr.join("/");
+			return tmpArr;
+		}
+
+		document.write (printProduct(products));
+
+	</script>
+</body>
+</html>
