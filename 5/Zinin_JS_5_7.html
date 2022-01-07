@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS 5.7</title>
+</head>
+<body>
+	<script>
+		"use strict";
+		
+		function getDateProperties (ms)
+		{
+			let date = new Date (ms);
+			let result = {}
+				result.day = date.getDate();
+				result.month = date.getMonth();
+				result.year = date.getFullYear();
+				result.hour = date.getHours();
+				result.minutes = date.getMinutes();
+				result.seconds = date.getSeconds();
+				result.week_day = date.getDay();
+
+		return result;
+		}
+
+		console.log (getDateProperties(7777777777777777)); //Welcome to 248430's ... Можно только 16 символов, и то не всегда
+	</script>
+</body>
+</html>

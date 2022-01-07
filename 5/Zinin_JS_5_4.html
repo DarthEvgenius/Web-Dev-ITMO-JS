@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS 5.4</title>
+</head>
+<body>
+	<div class="myDiv" style="background-color: red; height: 300px;">Текст в блоке</div>
+	<p></p>
+	<input type="button" value="Получить стиль" onclick="getStyle('backgroundColor')">
+
+	<script>
+		"use strict";
+		
+		function getStyle(nameStyle)
+		{
+			alert ("цвет фона элемента: " +  document.querySelector(".myDiv").style[nameStyle]); //без кавычек записываем аргумент функции в скобках .style
+		}	
+	</script>
+</body>
+</html>

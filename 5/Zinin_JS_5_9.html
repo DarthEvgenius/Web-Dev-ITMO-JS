@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS 5.9</title>
+</head>
+<body>
+	<script>
+		"use strict";
+		
+		function roundedNumber (num, count)
+		{
+			let roundedNumber = Math.round(num * 10 ** count)/(10**count);
+			return roundedNumber;
+		}
+
+		console.log (roundedNumber(12.123542, 3));
+	</script>
+</body>
+</html>

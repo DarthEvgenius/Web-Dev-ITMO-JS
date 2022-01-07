@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS 5.8</title>
+</head>
+<body>
+	<script>
+		"use strict";
+		
+		function getDateProperties (ms)
+		{
+			let date = new Date (ms);
+			let result = {};
+				result.day = date.getDate();
+				result.month = date.getMonth()+1; // +1 ибо отсчёт месяцев идёт с 0
+				result.year = date.getFullYear();
+				result.hour = date.getHours();
+				result.minutes = date.getMinutes();
+				result.seconds = date.getSeconds();
+				result.week_day = date.getDay();
+
+		return result;
+		}
+
+		function getNameOfMonth (month)
+		{
+			switch (month) //пишем с 1-12, т.к. у нас +1 к номеру месяца в объекте
+			{
+				case 1 : return "Января";
+				case 2 : return "Февраля";
+				case 3 : return "Марта";
+				case 4 : return "Апреля";
+				case 5 : return "Мая";
+				case 6 : return "Июня";
+				case 7 : return "Июля";
+				case 8 : return "Августа";
+				case 9 : return "Сентября";
+				case 10 : return "Октября";
+				case 11 : return "Ноября";
+				case 12 : return "Декабря";
+			}
+		}
+
+		function printPrettyDate(neededDate)
+		{
+			let date = getDateProperties(neededDate);
+			let str = '';
+			str = `${date.day} ${getNameOfMonth(date.month)} ${date.year}, `; // выводим в строку сразу функцию с аргументом из значения месяца от объекта, обрабатывающего дату из мс
+			str = str + `${date.hour}:${date.minutes}:${date.seconds}`;
+			return str;
+		}
+
+		document.write (printPrettyDate(1628440235430));
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS 5.2</title>
+</head>
+<body>
+	<script>
+		"use strict";
+		
+		let firstTimer = window.setTimeout(() => {alert("Fisrt!");}, 1000);
+		let secondTimer = window.setTimeout(() => {alert("Second!");}, 4000);
+
+		clearTimeout(firstTimer);
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS 5.4</title>
+</head>
+<body>
+	<div class="myDiv" style="background-color: red; height: 300px;">Текст в блоке</div>
+	<p>
+		<input type="text" value=".myDiv" id="elem">
+		<input type="text" value="backgroundColor" id="style">
+		<input type="text" value="#ccc" id="value">
+	</p>
+	<input type="button" value="Изменить стиль" onclick="changeStyle()">
+
+	<script>
+		"use strict";
+		
+		function changeStyle() 
+		{
+			// записываем значения из полей ввода в переменные
+			let element = document.querySelector('#elem').value;
+			let styleName = document.querySelector('#style').value;
+			let styleValue = document.querySelector('#value').value;
+			console.log (element, styleName, styleValue); //проверяем, что получили в переменные
+
+			document.querySelector(element).style[styleName] = styleValue;
+		}
+			
+	</script>
+</body>
+</html>
