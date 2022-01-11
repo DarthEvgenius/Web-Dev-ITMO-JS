@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.5</title>
+</head>
+<body>
+	<ul class="list"></ul>
+
+	<script>
+		"use strict";
+		let elmLi = document.createElement('li');
+		elmLi.style.color = 'blue';
+		elmLi.style.fontSize = '32px';
+		elmLi.style.fontFamily = 'sans-serif';
+		elmLi.innerText = "Мой первый элемент!";
+		document.getElementsByClassName('list')[0].append(elmLi);
+
+		console.log(document.getElementsByClassName('listaa')[0]); //возвращает undefined
+		console.log(document.getElementsByClassName('listaa')); //а так возвращает пустую коллекцию, тоже забавный факт
+
+		function buildNames(listOfNames, elementClass)
+		{
+			if (document.getElementsByClassName(elementClass)[0] !== undefined) //если при поиске элемента не выводится undefined
+			{
+				listOfNames.forEach(item =>
+				{
+					let elmLi = document.createElement('li');
+					elmLi.innerText = item;
+					document.getElementsByClassName(elementClass)[0].append(elmLi);
+				}
+				);
+				console.log('true');
+				return true;
+			}
+			else
+			{
+				console.log('false');
+				return false;
+			}
+		}
+
+		buildNames(['asd', 'qwe', 'zxc'], 'lista');
+		buildNames(['asd', 'qwe', 'zxc'], 'list');
+
+	</script>
+</body>
+</html>

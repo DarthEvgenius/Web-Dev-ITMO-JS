@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.4</title>
+</head>
+<body>
+	<ul class="listNumbers">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script>
+		console.log(document.getElementsByClassName('listNumbers'));
+		console.log(document.getElementsByClassName('listNumbers')[0].childNodes); //если не поставить индекс, то элементы не найдутся, а текстовые узлы содержат "textContent: "\n\t\t""
+		console.log(document.getElementsByClassName('listNumbers')[0].children); //получаем только элементы, а не все узлы
+
+		let textOfLi = [];
+
+		let nodes = document.getElementsByClassName('listNumbers')[0].childNodes;
+		nodes.forEach ( item =>
+		{
+			if (item.nodeType == 1)
+			{
+				textOfLi.push (item.innerText);
+			}
+		}
+		);
+		console.log(textOfLi);
+
+
+		let textOfLi_2 = [];
+		let liElements = document.getElementsByClassName('listNumbers')[0].children;
+		for (let item of liElements)
+		{
+			textOfLi_2.push(item.innerText);
+		}
+		
+
+		console.log(textOfLi_2);
+	</script>
+
+	<script src="script_4.js"></script>
+</body>
+</html>

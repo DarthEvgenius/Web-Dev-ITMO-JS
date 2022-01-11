@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.3</title>
+</head>
+<body>
+	<form action="#">
+		<label>Введите Ваше имя<br><input type="text" id="name" size="80px"></label><br>
+		<label>Введите Вашу фамилию<br><input type="text" id="surname" size="80px"></label><br>
+		<label>Укажите ваш возраст<br><input type="text" id="age" size="80px"></label><br>
+		<div>
+			<p>Укажите Ваш пол:</p>
+			<label for="male"><input type="radio" id="male" name="sex" value="male" checked>Мужской</label><br>
+			<label for="female"><input type="radio" id="female" name="sex" value="female">Женский</label><br>
+			<label for="unknown"><input type="radio" id="unknown" name="sex" value="unknown">Не указан</label>
+		</div>
+		<div>
+			<button onclick="getForm()">Отправить данные</button>
+			<input type="reset" value="Очистить форму"></div>
+	</form>
+
+	<script src="script_3.js"></script>
+</body>
+</html>
