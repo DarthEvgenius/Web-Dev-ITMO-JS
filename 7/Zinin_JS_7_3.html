@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+		<script>
+		// document.cookie = "login=stanislav";
+		// document.cookie = "password=pass";
+		// document.cookie = "domain=localhost";
+		// можно задать отдельно или в одну строку
+
+		document.cookie = "login=stanislav; password=pass; domain=localhost";
+		console.log(document.cookie); //выводит всё в одну строку в обоих случаях, а в разделе Application каждая пара куки будет в своей строке
+
+		// Поскольку весь файл cookies представляет собой строку, используем в функции строчные методы для разделения строки в массив по заданному разделителю .split
+
+		function getCookies ()
+		{
+			let cookies = document.cookie.split('; '); // у нас ещё и пробелы после ;
+			let result = cookies.map (item =>
+			{
+				let i = {name: item.slice(0, item.indexOf('=')), value: item.substr(item.indexOf('=')+ 1, item.length)}; //создаём из каждого элемента объект с ключём name и значением value, и заносим в них части строк из полученных пар куки, сначала по первого индекса до индекса знака "=" , потом от индекса знака "=" (+1, чтобы исключить сам "=") до конца (используя .length)
+				return (i);								
+			});
+			return result;
+		}
+		console.log(getCookies ());
+
+		// получился довольно громоздкий код. В ответах он, конечно, изящнее
+		function getCookies_2 ()
+		{
+			let result = [];
+			let cookies = document.cookie.split('; '); //также разделяем методом сплит, но при этом я не учёл, что каждая пара у нас при этом тоже строка, разделённая знаком "=". Т.о. к каждой паре Name=Value тоже можно применить split и получить каждое значение в отдельный элемент
+
+			console.log (cookies); //получаем массив, где элементы это пары значений Name=Value, каждая пара - строка, разделённая знаком "="
+
+			cookies.map (item =>
+			{
+				// let namesAndValues = item.split('='); // из каждого элемента делаем массив с двумя элементами: первый - имя, второй - значение
+				// console.log (namesAndValues); ы
+				// result.push ({name: namesAndValues[0], value: namesAndValues[1]}); // каждый раз заносим в итоговый массив созданное чудо
+
+				result.push ({name: item.split('=')[0], value: item.split('=')[1]}); //или вариант записи без новой переменной
+			});
+			return result; // и не забываем возвращать результат функции!
+		}
+		console.log (getCookies_2 ());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

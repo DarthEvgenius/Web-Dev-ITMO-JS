@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+	<style>
+		.formAuth, .greetings
+		{
+			padding: 16px;
+		}
+
+		.formAuth label
+		{
+			font-size: 18px;
+		}
+
+		.formAuth input[type="text"]
+		{
+			font-size: 16px;
+			margin: 10px 0;
+		}
+
+		.formAuth button
+		{
+			font-size: 16px;
+			padding: 7px 10px;
+		}
+	</style>
+	<script>
+		let login = () =>
+		{
+			let username = document.getElementById('login').value;
+			let password = document.getElementById('password').value;
+			if (username == 'stanislav' && password == 'pass') //проверка на верность введённых данных
+			{
+				Cookies.set ('login', username); // ставим значения кукам из полей ввода
+				Cookies.set ('password', password);
+				checkStatus(); //хук(??), который меняет внешний вид страницы без перезагрузки
+			}
+			else
+			{
+				document.getElementsByClassName('info')[0].innerHTML = 'неверный логин или пароль';
+			}
+		}
+
+		let logout = async () =>
+		{
+			Cookies.remove('login');
+			Cookies.remove('password');
+			checkStatus();
+		}
+
+		let checkStatus = () =>
+		{
+			let login = Cookies.get ('login'); // получаем значения логина и пароля из куков, ранее туда записанных из полей ввода
+			let pass = Cookies.get ('password');
+
+			// проверяем верность хранимых данных
+			if (login == 'stanislav' && pass == 'pass')
+			{
+				// если всё верно, то показываем приветствие, при этом скрываем форму авторизации
+				document.getElementsByClassName('formAuth')[0].style.display = 'none';
+				document.getElementsByClassName('greetings')[0].style.display = 'block';
+				document.querySelector ('.greetings p span').innerText = login; // и добавляем текст к приветствию в виде того, того приветствуем
+			}
+			else
+			{
+				// если логин\пароль неверные, то скрываем приветствие, показываем форму
+				document.getElementsByClassName('formAuth')[0].style.display = 'block';
+				document.getElementsByClassName('greetings')[0].style.display = 'none';
+			}
+			// удаляем введённые данные с полей ввода, и убираем сообщение об ошибке, если оно было
+			document.getElementsByClassName('info')[0].innerHTML = '';
+			document.getElementById('login').value = '';
+			document.getElementById('password').value = '';
+		}
+
+		window.onload = checkStatus();
+	</script>
+</head>
+<body>
+	<div class="greetings" style="display: none;">
+		<p>Добро пожаловать! <span></span></p>
+	</div>
+	<div class="formAuth" style="display: block;">
+		<label>
+			Логин:<br>
+			<input type="text" placeholder="Введите логин" id="login">
+		</label><br>
+		<label>
+			Пароль:<br>
+			<input type="text" placeholder="Введите пароль" id="password">
+		</label><br>
+		<button class="logIn" onclick="login()">Войти</button>
+		<p class="info"></p>
+	</div>
+	<p class="saveCookie"></p>
+</body>
+</html>
