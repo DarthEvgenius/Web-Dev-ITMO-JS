@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="http://www..ru" method="post" name="order">
+		<p>
+			<label>Имя: <br><input type="text" name="Fname"></label><br>
+			<label>Фамилия: <br><input type="text" name="Lname"></label><br>			
+			<label>Email: <br><input type="text" name="Email"></label><br> 
+			<button id="sendForm">Отправить</button>
+		</p>
+	</form>
+	<p class="valueOfEmail"></p>
+
+	<script defer>
+		"use strict";
+
+		function display (event)
+		{
+			event.preventDefault();
+			document.querySelector('.valueOfEmail').innerText = "Значение: " + document.forms.order.Email.value;
+		}
+
+		document.getElementById('sendForm').addEventListener('click', display); //имя функции пишется без (), а первое значение - название события (см. типы событий в js)
+	</script>
+</body>
+</html>

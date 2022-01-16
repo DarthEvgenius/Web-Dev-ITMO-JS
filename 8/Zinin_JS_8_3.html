@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.typeOfVehicles label
+		{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<form action="#" method="post" name="cars">
+
+		<select name="OptionList" size="5">
+		 	<option value="1">Classic</option>
+		 	<option value="2">Police Cruiser</option>
+		</select>
+		
+		<div>
+		 	<label>
+		 		<input type="radio" name="vehicles" checked="true" value="1" onclick="ResetOptionList(this.value)">Motocycles
+		 	</label>
+		 	<label>
+		 		<input type="radio" name="vehicles" value="2" onclick="ResetOptionList(this.value)">Cars
+		 	</label>
+		</div>
+
+		<input type="Submit" name="Submit" value="Submit">
+		<input type="Reset" name="Reset" value="reset">
+		
+	</form>
+
+	<script>
+		"use strict";
+
+		function buildOptions (objData, root)
+		{
+			for (let item in objData) // для каждого элемента из переданного объекта с машинами/мотоциклами, и в примере в задании ошибка - метод for of для массивоа, вместо for in для объектов, и оно выдаёт ошибку, что переданный объект не итерируемый
+			{
+				let option = document.createElement("option"); // создаём элемент <option>
+				option.value = objData[item].value; // в атрибут value добавляем значение ключа "значение" из объекта
+				option.innerText = objData[item].name; // в текст добваляем значение ключа "имя"" из объекта
+				root.appendChild(option); // в качестве root у нас родительский элемент select
+			}
+		}
+
+
+		function ResetOptionList (ElementValue)
+		{
+			let cars = document.forms.cars; // помещаем в переменную форму
+
+			// объект, содержащий как машины, так и мотоциклы
+			let listCars = 
+			{
+				moto: 
+				{
+					0: 
+					{
+						name: "Classic",
+						value: 1,
+					},
+					1: 
+					{
+						name: "Police Cruiser",
+						value: 2,
+					},
+					2: 
+					{
+						name: "Harley Davidson",
+						value: 3,
+					},
+				},
+
+				cars: 
+				{
+					0: 
+					{
+						name: "Ford",
+						value: 1,
+					},
+					1: 
+					{
+						name: "Chevy",
+						value: 2,
+					},
+				}
+			}
+
+			if (ElementValue == 1) // проверяем значение в аргументе функции
+			{
+				cars.OptionList.innerHTML = ""; // убираем ранее созданные options из select
+				buildOptions (listCars.moto, cars.OptionList); // запускаем функцию для построения option, передаём ей в качестве аргументов раздел мотоциклов из массива и путь, по которому надо построить список
+			}
+
+			if (ElementValue == 2)
+			{
+				cars.OptionList.innerHTML = "";
+				buildOptions (listCars.cars, cars.OptionList); // передаём  раздел машин из массива и путь до раздела select
+			}
+		}
+	</script>
+</body>
+</html>

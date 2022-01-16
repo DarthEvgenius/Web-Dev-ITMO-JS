@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>8.1 Событие onBlur</title>
+</head>
+<body>
+	<form action="http://www.ya.ru" method="post">
+		<p>
+			<label>Имя: <br><input type="text" name="Fname"></label><br>
+			<label>Фамилия: <input type="text" name="Lname"></label><br>			
+			<label>Email: <input type="text" name="Email" onblur="checkInputEmail(this.value)"></label><br> 
+			<input type="Submit" name="Submit" value="Submit">
+			<input type="Reset" name="Reset" value="reset">
+		</p>
+	</form>
+
+	<script>
+		"use strict";
+
+		function ValidateEmail(email) 
+		{
+			let Location = email.indexOf('@');
+			if (Location == -1)
+			{
+				return false;
+			}
+			return true;
+		}
+
+		function checkInputEmail(EmailAdress)
+		{
+			if (ValidateEmail(EmailAdress) == false)
+			{
+				alert ('Введите Email! Формат: имя_ящика@платформа');
+			}
+		}
+	</script>
+</body>
+</html>
